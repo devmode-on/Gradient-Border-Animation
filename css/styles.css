@@ -1,0 +1,95 @@
+/* ------------ GOOGLE FONTS ------------ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* ------------ VARIABLES ------------ */
+:root{
+  /* FONT */
+  --font: 'Poppins', sans-serif;;
+
+  /* COLORS */
+  --bg-color: #151320;
+  --conic-gradient: conic-gradient(
+    #FF2E2E,
+    #FF831E,
+    #FCFF51,
+    #58FF57,
+    #575FFF,
+    #D257FF,
+    #FF57E5,
+    #FF1556
+  );
+}
+
+/* ------------ BASE ------------ */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;	
+}
+
+body{
+  font-family: var(--font);
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* ---------- BUTTON --------- */
+.btn{
+  width: 16em;
+  height: 6em;
+  border-radius: 1em;
+  box-shadow: 0 1em 1em rgba(0,0,0, .5);
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  cursor: pointer;
+
+  transition: transform .3s ease;
+}
+
+.btn::before{
+  content: '';
+  position: absolute;
+  width: 110%;
+  height: 350%;
+  background: var(--conic-gradient);
+}
+
+.btn::after{
+  content: 'Hover Me!';
+  position: absolute;
+  background-color: var(--bg-color);
+  width: 96%;
+  height: 86%;
+  border-radius: .4em;
+
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover{
+  transform: scale(1.1);
+}
+
+.btn:hover::before{
+  animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+  to{
+    transform: rotate(360deg);
+  }
+}
